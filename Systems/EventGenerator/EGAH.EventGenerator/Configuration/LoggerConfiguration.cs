@@ -1,4 +1,4 @@
-﻿namespace EGAH.Api.Configuration;
+﻿namespace EGAH.EventGenerator.Configuration;
 
 using Serilog;
 

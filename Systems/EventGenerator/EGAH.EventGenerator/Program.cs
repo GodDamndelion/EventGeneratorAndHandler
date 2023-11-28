@@ -1,4 +1,4 @@
-using EGAH.Api.Configuration;
+using EGAH.EventGenerator.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,9 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddAppLogger();
 
+// Configure services
+
+var services = builder.Services;
+
+services.AddAppHealthChecks();
+
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+app.UseAppHealthChecks();
 
 // Configure the HTTP request pipeline.
 

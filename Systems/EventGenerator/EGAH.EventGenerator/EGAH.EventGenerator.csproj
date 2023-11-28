@@ -17,4 +17,8 @@
     <PackageReference Include="Serilog.Expressions" Version="4.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\EGAH.Common\EGAH.Common.csproj" />
+  </ItemGroup>
+
 </Project>

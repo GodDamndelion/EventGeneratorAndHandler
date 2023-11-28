@@ -13,7 +13,7 @@ services.AddAppHealthChecks();
 services.AddAppVersioning();
 services.AddAppSwagger();
 
-builder.Services.AddControllers();
+services.AddAppControllers();
 
 var app = builder.Build();
 
@@ -22,8 +22,6 @@ app.UseAppCors();
 app.UseAppHealthChecks();
 app.UseAppSwagger();
 
-app.UseAuthorization();
-
-app.MapControllers();
+app.UseAppControllers();
 
 app.Run();

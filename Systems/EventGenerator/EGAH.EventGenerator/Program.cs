@@ -34,4 +34,7 @@ app.UseAppSwagger();
 
 app.UseAppControllers();
 
+DbInitializer.Execute(app.Services);
+DbSeeder.Execute(app.Services, true);
+
 app.Run();

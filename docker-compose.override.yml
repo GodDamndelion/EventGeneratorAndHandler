@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+
+  egah_postgresql:
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Passw0rd
+    ports:
+      - "5432:5432"
+    networks:
+      - shared_egah_net
+    volumes:      
+      - ~/.docker-conf/postgresql/data/:/var/lib/postgresql/data
+
+  egah_eventgenerator:
+    ports:
+      - "10000:80"
+    networks:
+      - shared_egah_net
+    env_file:
+      - env.eventgenerator
+
+networks:
+  shared_egah_net:
+    name: egah
+    driver: bridge

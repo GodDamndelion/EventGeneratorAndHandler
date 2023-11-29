@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+
+  egah_postgresql:
+    image: postgres:14.1
+
+  egah_eventgenerator:
+    image: ${DOCKER_REGISTRY-}egaheventgenerator
+    build:
+      context: .
+      dockerfile: Systems/EventGenerator/EGAH.EventGenerator/Dockerfile
+    depends_on:
+      - egah_postgresql

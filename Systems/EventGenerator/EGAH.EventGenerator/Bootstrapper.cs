@@ -1,6 +1,6 @@
 ﻿namespace EGAH.EventGenerator;
 
-//using EGAH.EventGenerator.Settings;
+using EGAH.EventGenerator.Settings;
 using EGAH.Services.Settings;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,7 +11,7 @@ public static class Bootstrapper
         services
             .AddMainSettings()
             .AddSwaggerSettings()
-            //.AddApiSpecialSettings()
+            .AddApiSpecialSettings()
             ;
 
         return services;

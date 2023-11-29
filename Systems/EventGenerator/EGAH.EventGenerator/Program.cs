@@ -1,3 +1,4 @@
+using EGAH.Context;
 using EGAH.EventGenerator;
 using EGAH.EventGenerator.Configuration;
 using EGAH.Services.Settings;
@@ -13,6 +14,8 @@ var services = builder.Services;
 
 services.AddHttpContextAccessor();
 services.AddAppCors();
+
+services.AddAppDbContext(builder.Configuration);
 
 services.AddAppHealthChecks();
 services.AddAppVersioning();

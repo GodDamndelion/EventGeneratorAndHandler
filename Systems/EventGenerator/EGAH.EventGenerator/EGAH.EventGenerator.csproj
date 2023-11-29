@@ -19,6 +19,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
     <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
@@ -30,6 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\EGAH.Context\EGAH.Context.csproj" />
+    <ProjectReference Include="..\..\..\Data\Migrations\EGAH.Context.MigrationsPostgreSQL\EGAH.Context.MigrationsPostgreSQL.csproj" />
     <ProjectReference Include="..\..\..\Services\EGAH.Services.Settings\EGAH.Services.Settings.csproj" />
     <ProjectReference Include="..\..\..\Shared\EGAH.Common\EGAH.Common.csproj" />
     <ProjectReference Include="..\EGAH.EventGenerator.Settings\EGAH.EventGenerator.Settings.csproj" />

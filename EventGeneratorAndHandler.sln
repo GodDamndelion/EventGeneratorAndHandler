@@ -13,13 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventHandler", "EventHandle
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventGenerator", "EventGenerator", "{B577BF2B-C36E-4889-B60F-50FF3546A7E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAH.EventGenerator", "Systems\EventGenerator\EGAH.EventGenerator\EGAH.EventGenerator.csproj", "{1AA96FA3-1A62-49C8-AF95-9366A8EE9114}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGAH.EventGenerator", "Systems\EventGenerator\EGAH.EventGenerator\EGAH.EventGenerator.csproj", "{1AA96FA3-1A62-49C8-AF95-9366A8EE9114}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAH.EventGenerator.Settings", "Systems\EventGenerator\EGAH.EventGenerator.Settings\EGAH.EventGenerator.Settings.csproj", "{118E72B5-765E-4848-B425-55DD167FF216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGAH.EventGenerator.Settings", "Systems\EventGenerator\EGAH.EventGenerator.Settings\EGAH.EventGenerator.Settings.csproj", "{118E72B5-765E-4848-B425-55DD167FF216}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{79A136C3-369B-4C20-8F0B-608967D88A47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAH.Common", "Shared\EGAH.Common\EGAH.Common.csproj", "{A3DC7569-8E24-4F4F-9451-8412073B071B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGAH.Common", "Shared\EGAH.Common\EGAH.Common.csproj", "{A3DC7569-8E24-4F4F-9451-8412073B071B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAH.Settings", "Shared\EGAH.Settings\EGAH.Settings.csproj", "{A7892008-24FA-4EEC-914B-E6E4A2BF6AFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAH.Services.Settings", "Services\EGAH.Services.Settings\EGAH.Services.Settings.csproj", "{2BA1544A-1F7F-43E0-88B8-67D78715FC38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{A3DC7569-8E24-4F4F-9451-8412073B071B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3DC7569-8E24-4F4F-9451-8412073B071B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3DC7569-8E24-4F4F-9451-8412073B071B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7892008-24FA-4EEC-914B-E6E4A2BF6AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7892008-24FA-4EEC-914B-E6E4A2BF6AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7892008-24FA-4EEC-914B-E6E4A2BF6AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7892008-24FA-4EEC-914B-E6E4A2BF6AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BA1544A-1F7F-43E0-88B8-67D78715FC38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BA1544A-1F7F-43E0-88B8-67D78715FC38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BA1544A-1F7F-43E0-88B8-67D78715FC38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BA1544A-1F7F-43E0-88B8-67D78715FC38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +61,8 @@ Global
 		{1AA96FA3-1A62-49C8-AF95-9366A8EE9114} = {B577BF2B-C36E-4889-B60F-50FF3546A7E6}
 		{118E72B5-765E-4848-B425-55DD167FF216} = {B577BF2B-C36E-4889-B60F-50FF3546A7E6}
 		{A3DC7569-8E24-4F4F-9451-8412073B071B} = {79A136C3-369B-4C20-8F0B-608967D88A47}
+		{A7892008-24FA-4EEC-914B-E6E4A2BF6AFE} = {79A136C3-369B-4C20-8F0B-608967D88A47}
+		{2BA1544A-1F7F-43E0-88B8-67D78715FC38} = {F3AD0515-5B05-489B-898B-BE16085E670F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3DE3769-F35D-49E4-AC85-D3E46F62255C}

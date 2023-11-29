@@ -1,7 +1,7 @@
 ﻿namespace EGAH.EventGenerator.Configuration;
 
 //using EGAH.Common.Security;
-//using EGAH.Services.Settings;
+using EGAH.Services.Settings;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
@@ -20,13 +20,12 @@ public static class SwaggerConfiguration
     /// Add OpenAPI for API
     /// </summary>
     /// <param name="services">Services collection</param>
-    /// <param name="identitySettings"></param>
     /// <param name="swaggerSettings"></param>
-    public static IServiceCollection AddAppSwagger(this IServiceCollection services/*, IdentitySettings identitySettings, SwaggerSettings swaggerSettings*/)
+    public static IServiceCollection AddAppSwagger(this IServiceCollection services, SwaggerSettings swaggerSettings)
     {
-        //// Если Swagger выключен, то его настраивать не нужно
-        //if (!swaggerSettings.Enabled)
-        //    return services;
+        // Если Swagger выключен, то его настраивать не нужно
+        if (!swaggerSettings.Enabled)
+            return services;
 
         services
             .AddOptions<SwaggerGenOptions>()
@@ -111,10 +110,10 @@ public static class SwaggerConfiguration
     /// <param name="app">Web application</param>
     public static void UseAppSwagger(this WebApplication app)
     {
-//        var swaggerSettings = app.Services.GetService<SwaggerSettings>();
+        var swaggerSettings = app.Services.GetService<SwaggerSettings>();
 
-//        if (!swaggerSettings?.Enabled ?? false)
-//            return;
+        if (!swaggerSettings?.Enabled ?? false)
+            return;
 
         var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 

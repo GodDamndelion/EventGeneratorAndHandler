@@ -1,6 +1,11 @@
+using EGAH.EventGenerator;
 using EGAH.EventGenerator.Configuration;
+using EGAH.Services.Settings;
+using EGAH.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var swaggerSettings = Settings.Load<SwaggerSettings>("Swagger");
 
 builder.AddAppLogger();
 
@@ -11,9 +16,11 @@ services.AddAppCors();
 
 services.AddAppHealthChecks();
 services.AddAppVersioning();
-services.AddAppSwagger();
+services.AddAppSwagger(swaggerSettings);
 
 services.AddAppControllers();
+
+services.RegisterAppServices();
 
 var app = builder.Build();
 

@@ -39,7 +39,6 @@
     <ProjectReference Include="..\..\..\Services\EGAH.Services.Incidents\EGAH.Services.Incidents.csproj" />
     <ProjectReference Include="..\..\..\Services\EGAH.Services.Settings\EGAH.Services.Settings.csproj" />
     <ProjectReference Include="..\..\..\Shared\EGAH.Common\EGAH.Common.csproj" />
-    <ProjectReference Include="..\..\EventGenerator\EGAH.EventGenerator\EGAH.EventGenerator.csproj" />
     <ProjectReference Include="..\EGAH.EventHandler.Settings\EGAH.EventHandler.Settings.csproj" />
   </ItemGroup>
 

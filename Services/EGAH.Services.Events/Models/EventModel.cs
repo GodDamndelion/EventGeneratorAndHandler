@@ -2,7 +2,6 @@
 
 using AutoMapper;
 using EGAH.Context.Entities;
-using FluentValidation;
 
 public class EventModel
 {
@@ -11,11 +10,6 @@ public class EventModel
     public EventTypeEnum Type { get; set; }
 
     public DateTime Time { get; set; } // Дата генерации события
-}
-
-public class EventModelValidator : AbstractValidator<EventModel>
-{
-    public EventModelValidator() { }
 }
 
 public class EventModelProfile : Profile

@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EGAH.EventHandler</name>
+    </assembly>
+    <members>
+        <member name="T:EGAH.EventHandler.Configuration.AutoMapperConfiguration">
+            <summary>
+            AutoMapper configuration
+            </summary>
+        </member>
+        <member name="M:EGAH.EventHandler.Configuration.AutoMapperConfiguration.AddAppAutoMappers(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add automappers
+            </summary>
+            <param name="services">Services collection</param>
+        </member>
+        <member name="T:EGAH.EventHandler.Configuration.CorsConfiguration">
+            <summary>
+            CORS configuration
+            </summary>
+        </member>
+        <member name="M:EGAH.EventHandler.Configuration.CorsConfiguration.AddAppCors(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add CORS
+            </summary>
+            <param name="services">Services collection</param>
+        </member>
+        <member name="M:EGAH.EventHandler.Configuration.CorsConfiguration.UseAppCors(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Use service
+            </summary>
+            <param name="app">Application</param>
+        </member>
+        <member name="T:EGAH.EventHandler.Configuration.LoggerConfiguration">
+            <summary>
+            Logger Configuration
+            </summary>
+        </member>
+        <member name="M:EGAH.EventHandler.Configuration.LoggerConfiguration.AddAppLogger(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Add logger
+            </summary>
+        </member>
+        <member name="T:EGAH.EventHandler.Configuration.SwaggerConfiguration">
+            <summary>
+            Swagger configuration
+            </summary>
+        </member>
+        <member name="M:EGAH.EventHandler.Configuration.SwaggerConfiguration.AddAppSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection,EGAH.Services.Settings.SwaggerSettings)">
+            <summary>
+            Add OpenAPI for API
+            </summary>
+            <param name="services">Services collection</param>
+            <param name="swaggerSettings"></param>
+        </member>
+        <member name="M:EGAH.EventHandler.Configuration.SwaggerConfiguration.UseAppSwagger(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>
+            Start OpenAPI UI
+            </summary>
+            <param name="app">Web application</param>
+        </member>
+        <member name="T:EGAH.EventHandler.Configuration.VersioningConfiguration">
+            <summary>
+            Versioning configuration
+            </summary>
+        </member>
+        <member name="M:EGAH.EventHandler.Configuration.VersioningConfiguration.AddAppVersioning(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add version support for API
+            </summary>
+            <param name="services">Services collection</param>
+        </member>
+        <member name="T:EGAH.EventHandler.Controllers.IncidentsController">
+            <summary>
+            Incidents controller
+            </summary>
+            <response code="400">Bad Request</response>
+            <response code="401">Unauthorized</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EGAH.EventHandler.Controllers.IncidentsController.CreateIncident(EGAH.EventGenerator.Controllers.Models.EventRequestResponse)">
+            <summary>
+            Create incident
+            </summary>
+        </member>
+        <member name="M:EGAH.EventHandler.Controllers.IncidentsController.GetIncidents(System.Int32,System.Int32)">
+            <summary>
+            Get incident
+            </summary>
+            <param name="offset">Offset to the first element</param>
+            <param name="limit">Count of elements on the page</param>
+            <response code="200">List of IncidentRequestResponses</response>
+        </member>
+    </members>
+</doc>

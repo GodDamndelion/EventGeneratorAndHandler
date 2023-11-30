@@ -1,15 +1,41 @@
+using EGAH.Context;
+using EGAH.EventGenerator;
+using EGAH.EventGenerator.Configuration;
+using EGAH.Services.Settings;
+using EGAH.Settings;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var swaggerSettings = Settings.Load<SwaggerSettings>("Swagger");
 
-builder.Services.AddControllers();
+builder.AddAppLogger();
+
+var services = builder.Services;
+
+services.AddHttpContextAccessor();
+services.AddAppCors();
+
+services.AddAppDbContext(builder.Configuration);
+
+services.AddAppHealthChecks();
+services.AddAppVersioning();
+services.AddAppSwagger(swaggerSettings);
+services.AddAppAutoMappers();
+
+services.AddAppControllers();
+
+services.RegisterAppServices();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.UseAppCors();
 
-app.UseAuthorization();
+app.UseAppHealthChecks();
+app.UseAppSwagger();
 
-app.MapControllers();
+app.UseAppControllers();
+
+DbInitializer.Execute(app.Services);
+DbSeeder.Execute(app.Services, true);
 
 app.Run();

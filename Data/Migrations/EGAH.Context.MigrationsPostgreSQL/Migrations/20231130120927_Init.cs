@@ -12,6 +12,19 @@ namespace EGAH.Context.MigrationsPostgreSQL.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Events",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Type = table.Column<int>(type: "integer", nullable: false),
+                    Time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Events", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Incidents",
                 columns: table => new
                 {
@@ -25,6 +38,12 @@ namespace EGAH.Context.MigrationsPostgreSQL.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Events_Id",
+                table: "Events",
+                column: "Id",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Incidents_Id",
                 table: "Incidents",
                 column: "Id",
@@ -34,6 +53,9 @@ namespace EGAH.Context.MigrationsPostgreSQL.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Events");
+
             migrationBuilder.DropTable(
                 name: "Incidents");
         }

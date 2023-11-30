@@ -12,4 +12,10 @@ public class Incident
     public IncidentTypeEnum Type { get; set; }
 
     public DateTime Time { get; set; } // Дата создания инцидента
+
+    public Guid FirstEventId { get; set; }
+    public virtual Event FirstEvent { get; set; } // Event.Type = 1
+
+    public Guid? SecondEventId { get; set; }
+    public virtual Event? SecondEvent { get; set; } // Event.Type = 2, если Incident.Type = 2
 }

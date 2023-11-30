@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.8.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\EGAH.Context.Entities\EGAH.Context.Entities.csproj" />
+    <ProjectReference Include="..\..\Data\EGAH.Context\EGAH.Context.csproj" />
+    <ProjectReference Include="..\..\Shared\EGAH.Common\EGAH.Common.csproj" />
+    <ProjectReference Include="..\EGAH.Services.Events\EGAH.Services.Events.csproj" />
+  </ItemGroup>
+
+</Project>

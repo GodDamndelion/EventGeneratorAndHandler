@@ -22,6 +22,14 @@ services:
     env_file:
       - env.eventgenerator
 
+  egah_eventhandler:
+    ports:
+      - "10001:80"
+    networks:
+      - shared_egah_net
+    env_file:
+      - env.eventhandler
+
 networks:
   shared_egah_net:
     name: egah

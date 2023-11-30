@@ -12,4 +12,6 @@ public class Event
     public EventTypeEnum Type { get; set; }
 
     public DateTime Time { get; set; } // Дата генерации события
+
+    public virtual Incident? Incident { get; set; }
 }

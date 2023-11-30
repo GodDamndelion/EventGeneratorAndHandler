@@ -12,12 +12,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Configuration\" />
     <Folder Include="Pages\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.8.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
       <PrivateAssets>all</PrivateAssets>
@@ -36,6 +36,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Data\EGAH.Context\EGAH.Context.csproj" />
     <ProjectReference Include="..\..\..\Data\Migrations\EGAH.Context.MigrationsPostgreSQL\EGAH.Context.MigrationsPostgreSQL.csproj" />
+    <ProjectReference Include="..\..\..\Services\EGAH.Services.Events\EGAH.Services.Events.csproj" />
     <ProjectReference Include="..\..\..\Services\EGAH.Services.Settings\EGAH.Services.Settings.csproj" />
     <ProjectReference Include="..\..\..\Shared\EGAH.Common\EGAH.Common.csproj" />
     <ProjectReference Include="..\EGAH.EventGenerator.Settings\EGAH.EventGenerator.Settings.csproj" />

@@ -22,7 +22,7 @@ namespace EGAH.Context.MigrationsPostgreSQL.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("EGAH.Context.Entities.Incident", b =>
+            modelBuilder.Entity("EGAH.Context.Entities.Event", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,7 +39,60 @@ namespace EGAH.Context.MigrationsPostgreSQL.Migrations
                     b.HasIndex("Id")
                         .IsUnique();
 
+                    b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("EGAH.Context.Entities.Incident", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("FirstEventId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("SecondEventId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FirstEventId")
+                        .IsUnique();
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.HasIndex("SecondEventId");
+
                     b.ToTable("Incidents");
+                });
+
+            modelBuilder.Entity("EGAH.Context.Entities.Incident", b =>
+                {
+                    b.HasOne("EGAH.Context.Entities.Event", "FirstEvent")
+                        .WithOne("Incident")
+                        .HasForeignKey("EGAH.Context.Entities.Incident", "FirstEventId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("EGAH.Context.Entities.Event", "SecondEvent")
+                        .WithMany()
+                        .HasForeignKey("SecondEventId");
+
+                    b.Navigation("FirstEvent");
+
+                    b.Navigation("SecondEvent");
+                });
+
+            modelBuilder.Entity("EGAH.Context.Entities.Event", b =>
+                {
+                    b.Navigation("Incident");
                 });
 #pragma warning restore 612, 618
         }

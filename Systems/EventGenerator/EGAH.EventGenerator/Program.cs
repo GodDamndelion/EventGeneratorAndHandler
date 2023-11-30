@@ -20,6 +20,7 @@ services.AddAppDbContext(builder.Configuration);
 services.AddAppHealthChecks();
 services.AddAppVersioning();
 services.AddAppSwagger(swaggerSettings);
+services.AddAppAutoMappers();
 
 services.AddAppControllers();
 

@@ -7,9 +7,14 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Systems/EventGenerator/EGAH.EventGenerator/EGAH.EventGenerator.csproj", "Systems/EventGenerator/EGAH.EventGenerator/"]
-COPY ["Services/EGAH.Services.Settings/EGAH.Services.Settings.csproj", "Services/EGAH.Services.Settings/"]
+COPY ["Data/EGAH.Context/EGAH.Context.csproj", "Data/EGAH.Context/"]
 COPY ["Shared/EGAH.Settings/EGAH.Settings.csproj", "Shared/EGAH.Settings/"]
+COPY ["Data/EGAH.Context.Entities/EGAH.Context.Entities.csproj", "Data/EGAH.Context.Entities/"]
+COPY ["Data/Migrations/EGAH.Context.MigrationsPostgreSQL/EGAH.Context.MigrationsPostgreSQL.csproj", "Data/Migrations/EGAH.Context.MigrationsPostgreSQL/"]
+COPY ["Services/EGAH.Services.Events/EGAH.Services.Events.csproj", "Services/EGAH.Services.Events/"]
 COPY ["Shared/EGAH.Common/EGAH.Common.csproj", "Shared/EGAH.Common/"]
+COPY ["Services/EGAH.Services.Incidents/EGAH.Services.Incidents.csproj", "Services/EGAH.Services.Incidents/"]
+COPY ["Services/EGAH.Services.Settings/EGAH.Services.Settings.csproj", "Services/EGAH.Services.Settings/"]
 COPY ["Systems/EventGenerator/EGAH.EventGenerator.Settings/EGAH.EventGenerator.Settings.csproj", "Systems/EventGenerator/EGAH.EventGenerator.Settings/"]
 RUN dotnet restore "Systems/EventGenerator/EGAH.EventGenerator/EGAH.EventGenerator.csproj"
 COPY . .

@@ -84,6 +84,7 @@
             <summary>
             Create incident
             </summary>
+            <response code="204">Event ignored, null returned</response>
         </member>
         <member name="M:EGAH.EventHandler.Controllers.IncidentsController.GetIncidents(System.Int32,System.Int32)">
             <summary>

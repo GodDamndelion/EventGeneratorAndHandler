@@ -24,11 +24,17 @@ public class IncidentService : IIncidentService
         this.incidentModelValidator = incidentModelValidator;
     }
 
+    static EventModel? lastSecondEvent = null;
+
     public async Task<IncidentModel?> CreateIncident(EventModel eventModel)
     {
         IncidentModel? model = null;
 
-        if (eventModel.Type == EventTypeEnum.First)
+        if (eventModel.Type == EventTypeEnum.Second)
+        {
+            lastSecondEvent = eventModel;
+        }
+        else if (eventModel.Type == EventTypeEnum.First)
         {
             model = new IncidentModel()
             {
@@ -36,6 +42,12 @@ public class IncidentService : IIncidentService
                 Time = DateTime.UtcNow,
                 FirstEventId = eventModel.Id
             };
+
+            if (lastSecondEvent != null && (eventModel.Time - lastSecondEvent.Time).TotalSeconds <= 20)
+            {
+                model.Type = IncidentTypeEnum.Second;
+                model.SecondEventId = lastSecondEvent.Id;
+            }
 
             incidentModelValidator.Check(model);
 
@@ -45,6 +57,8 @@ public class IncidentService : IIncidentService
 
             await context.Incidents.AddAsync(incident);
             context.SaveChanges();
+
+            lastSecondEvent = null; // Либо это событие уже было использовано, либо уже прошёл срок, либо и было null.
         }
 
         return model;

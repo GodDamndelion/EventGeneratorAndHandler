@@ -33,6 +33,7 @@ public class IncidentsController : ControllerBase
     /// <summary>
     /// Create incident
     /// </summary>
+    /// <response code="204">Event ignored, null returned</response>
     [HttpPost("")]
     public async Task<IncidentRequestResponse?> CreateIncident([FromBody] EventModel model)
     {
@@ -43,7 +44,7 @@ public class IncidentsController : ControllerBase
     }
 
     /// <summary>
-    /// Get incident
+    /// Get incidents
     /// </summary>
     /// <param name="offset">Offset to the first element</param>
     /// <param name="limit">Count of elements on the page</param>

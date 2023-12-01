@@ -1,7 +1,6 @@
 ﻿namespace EGAH.Services.Events;
 
 using AutoMapper;
-using EGAH.Common.Validator;
 using EGAH.Context;
 using EGAH.Context.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +36,7 @@ public class EventService : IEventService
         context.SaveChanges();
 
         // TODO: Дёргать IncidentService
+        
 
         return model;
     }

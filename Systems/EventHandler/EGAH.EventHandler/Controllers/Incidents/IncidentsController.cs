@@ -3,7 +3,6 @@
 using AutoMapper;
 using EGAH.Common.Responses;
 using EGAH.EventHandler.Controllers.Models;
-using EGAH.EventGenerator.Controllers.Models;
 using EGAH.Services.Incidents;
 using Microsoft.AspNetCore.Mvc;
 using EGAH.Services.Events;
@@ -34,10 +33,10 @@ public class IncidentsController : ControllerBase
     /// <summary>
     /// Create incident
     /// </summary>
+    /// <response code="204">Event ignored, null returned</response>
     [HttpPost("")]
-    public async Task<IncidentRequestResponse?> CreateIncident([FromBody] EventRequestResponse request)
+    public async Task<IncidentRequestResponse?> CreateIncident([FromBody] EventModel model)
     {
-        var model = mapper.Map<EventModel>(request);
         var incident = await incidentService.CreateIncident(model);
         var response = mapper.Map<IncidentRequestResponse?>(incident);
 
@@ -45,7 +44,7 @@ public class IncidentsController : ControllerBase
     }
 
     /// <summary>
-    /// Get incident
+    /// Get incidents
     /// </summary>
     /// <param name="offset">Offset to the first element</param>
     /// <param name="limit">Count of elements on the page</param>

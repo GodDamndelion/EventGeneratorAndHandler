@@ -31,7 +31,7 @@ public static class DbSeeder
         // Асинхронность тут не работает.
         using var context = DbContext(scope.ServiceProvider);
 
-        if (context.Incidents.Any())
+        if (context.Incidents.Any() || context.Events.Any())
             return;
 
         // Можно добавить сюда начальные данные в БД

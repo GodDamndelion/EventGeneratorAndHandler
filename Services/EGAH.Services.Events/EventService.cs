@@ -1,7 +1,6 @@
 ﻿namespace EGAH.Services.Events;
 
 using AutoMapper;
-using EGAH.Common.Validator;
 using EGAH.Context;
 using EGAH.Context.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +10,14 @@ public class EventService : IEventService
 {
     private readonly IDbContextFactory<MainDbContext> contextFactory;
     private readonly IMapper mapper;
-    private readonly IModelValidator<EventModel> eventModelValidator;
 
     public EventService(
         IDbContextFactory<MainDbContext> contextFactory,
-        IMapper mapper,
-        IModelValidator<EventModel> eventModelValidator
+        IMapper mapper
         )
     {
         this.contextFactory = contextFactory;
         this.mapper = mapper;
-        this.eventModelValidator = eventModelValidator;
     }
 
     public async Task<EventModel> CreateEvent()
@@ -32,8 +28,6 @@ public class EventService : IEventService
             Time = DateTime.UtcNow
         };
 
-        eventModelValidator.Check(model);
-
         using var context = await contextFactory.CreateDbContextAsync();
         
         var newEvent = mapper.Map<Event>(model);
@@ -42,6 +36,7 @@ public class EventService : IEventService
         context.SaveChanges();
 
         // TODO: Дёргать IncidentService
+        
 
         return model;
     }

@@ -15,8 +15,6 @@ COPY ["Services/EGAH.Services.Events/EGAH.Services.Events.csproj", "Services/EGA
 COPY ["Shared/EGAH.Common/EGAH.Common.csproj", "Shared/EGAH.Common/"]
 COPY ["Services/EGAH.Services.Incidents/EGAH.Services.Incidents.csproj", "Services/EGAH.Services.Incidents/"]
 COPY ["Services/EGAH.Services.Settings/EGAH.Services.Settings.csproj", "Services/EGAH.Services.Settings/"]
-COPY ["Systems/EventGenerator/EGAH.EventGenerator/EGAH.EventGenerator.csproj", "Systems/EventGenerator/EGAH.EventGenerator/"]
-COPY ["Systems/EventGenerator/EGAH.EventGenerator.Settings/EGAH.EventGenerator.Settings.csproj", "Systems/EventGenerator/EGAH.EventGenerator.Settings/"]
 COPY ["Systems/EventHandler/EGAH.EventHandler.Settings/EGAH.EventHandler.Settings.csproj", "Systems/EventHandler/EGAH.EventHandler.Settings/"]
 RUN dotnet restore "Systems/EventHandler/EGAH.EventHandler/EGAH.EventHandler.csproj"
 COPY . .

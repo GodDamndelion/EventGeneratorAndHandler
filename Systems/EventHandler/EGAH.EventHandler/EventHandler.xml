@@ -80,10 +80,11 @@
             <response code="403">Forbidden</response>
             <response code="404">Not Found</response>
         </member>
-        <member name="M:EGAH.EventHandler.Controllers.IncidentsController.CreateIncident(EGAH.EventGenerator.Controllers.Models.EventRequestResponse)">
+        <member name="M:EGAH.EventHandler.Controllers.IncidentsController.CreateIncident(EGAH.Services.Events.EventModel)">
             <summary>
             Create incident
             </summary>
+            <response code="204">Event ignored, null returned</response>
         </member>
         <member name="M:EGAH.EventHandler.Controllers.IncidentsController.GetIncidents(System.Int32,System.Int32)">
             <summary>

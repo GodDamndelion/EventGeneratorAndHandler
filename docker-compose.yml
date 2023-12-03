@@ -12,6 +12,7 @@ services:
       dockerfile: Systems/EventGenerator/EGAH.EventGenerator/Dockerfile
     depends_on:
       - egah_postgresql
+      - egah_eventhandler
 
   egah_eventhandler:
     image: ${DOCKER_REGISTRY-}egaheventhandler
@@ -20,4 +21,3 @@ services:
       dockerfile: Systems/EventHandler/EGAH.EventHandler/Dockerfile
     depends_on:
       - egah_postgresql
-      - egah_eventgenerator

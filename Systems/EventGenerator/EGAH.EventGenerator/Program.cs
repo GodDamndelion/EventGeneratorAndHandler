@@ -27,6 +27,8 @@ services.AddAppControllers();
 
 services.RegisterAppServices();
 
+services.AddHttpClient();
+
 var app = builder.Build();
 
 app.UseAppCors();

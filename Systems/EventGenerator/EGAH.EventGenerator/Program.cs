@@ -1,6 +1,7 @@
 using EGAH.Context;
 using EGAH.EventGenerator;
 using EGAH.EventGenerator.Configuration;
+using EGAH.EventGenerator.Work;
 using EGAH.Services.Settings;
 using EGAH.Settings;
 
@@ -37,5 +38,7 @@ app.UseAppControllers();
 
 DbInitializer.Execute(app.Services);
 DbSeeder.Execute(app.Services, true);
+
+Task work = Task.Run(() => Work.Do(app.Services));
 
 app.Run();
